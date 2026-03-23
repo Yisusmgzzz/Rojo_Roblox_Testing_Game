@@ -6,7 +6,7 @@ local function crearAnim()
     local tween = Instance.new("Tween")
     tween.Parent = Workspace:WaitForChild("RandomPart")
 
-    local ti = tween.TweenInfo
+    local ti = tween.TweenInfo --here i call tween info to interact to the style of the rain parts
     ti.EasingStyle = Enum.EasingStyle.Elastic 
     tween.Changed:Connect(function(part)
         part.Size = Vector3.new(2, 10, 2)
@@ -14,7 +14,7 @@ local function crearAnim()
     end)
 end
 
-local function crearPartes(shape)
+local function crearPartes(shape) --here i call a function to create parts automaticaly
     local part = Instance.new("Part")
     part.Parent = Workspace
     part.Name = "RandomPart"
@@ -33,7 +33,7 @@ local function crearPartes(shape)
     print("Partes creadas :D")
 end
 
-RunService.Heartbeat:Connect(function(deltaTime)
+RunService.Heartbeat:Connect(function(deltaTime) -- here i use the heartbeat method to improve the rain fall and spawn new balls
     deltaTime = 300
    crearPartes(Enum.PartType.Ball) 
    crearAnim()
